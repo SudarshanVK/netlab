@@ -8,7 +8,7 @@
 {% set vm_name = name %}
   vm_name = "{{ name }}"
 {% set name = name | replace('-','') %}
-  config.vm.define vm_name do |{{ cleaned_name }}|
+  config.vm.define vm_name do |{{ name }}|
 {% if n.mgmt is defined and n.mgmt.mac is defined %}
     {{ name }}.vm.provider :libvirt do |domain|
       domain.management_network_mac = "{{n.mgmt.mac}}"
